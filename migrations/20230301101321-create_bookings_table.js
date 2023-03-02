@@ -14,11 +14,11 @@ module.exports = {
           default: Sequelize.UUIDV4
         },
         user_id:{
-          type:Sequelize.INTEGER,
+          type:Sequelize.STRING,
           allowNull:false
         },
         product_id:{
-          type:Sequelize.INTEGER,
+          type:Sequelize.STRING,
           allowNull:false
         },
         quantity:{

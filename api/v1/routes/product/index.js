@@ -12,7 +12,9 @@ router.post("/createProduct", AuthHelper.authorize, aclPermissions.getPermission
 router.post("/getAllProduct", AuthHelper.authorize, aclPermissions.getPermissions, ProductControllerV1.getAllProduct);
 router.post("/deleteProduct", AuthHelper.authorize, aclPermissions.getPermissions, ProductControllerV1.deleteProduct);
 router.post("/updateProduct", AuthHelper.authorize, aclPermissions.getPermissions, ProductControllerV1.updateProduct);
-// getAllProduct
+router.post("/bookProduct", AuthHelper.authorize, aclPermissions.getPermissions, ProductControllerV1.bookProduct);
+router.post("/cancelProduct", AuthHelper.authorize, aclPermissions.getPermissions, ProductControllerV1.cancelProduct);
+
 
 //router.post("/loginCEO", AuthHelper.authorize, aclPermissions.getPermissions, UserControllerV1.get);
 

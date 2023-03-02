@@ -16,7 +16,7 @@ const signUp = async (data) => {
 const findUser = async (email) => {
     try {
         
-        let query = ' SELECT u.name as name , u.password as password,u.email as email,r.name as role from users  u left join roles r on u.role = r.id  where u.email=?';
+        let query = ' SELECT u.id as id,u.name as name , u.password as password,u.email as email,r.name as role from users  u left join roles r on u.role = r.id  where u.email=?';
         let bindParams = [email];
         let user = await sequelize.query(query, { replacements: bindParams, type: QueryTypes.SELECT });
         return user[0];

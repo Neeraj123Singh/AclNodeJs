@@ -34,7 +34,8 @@ nodeAcl.allow([
     allows: [
       {
         resources: [
-         
+          '/bookProduct',
+          '/cancelProduct',
         ],
         permissions: ['*']
       },

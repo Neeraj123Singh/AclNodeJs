@@ -215,6 +215,76 @@
             }
           }
         }
+      },
+      "/product/bookProduct":{
+        "post":{
+          "summary":"",
+          "description":"Book A Product",
+          "produces":[
+            "application/json"
+          ],
+          "parameters":[
+            {
+              "name": "Authorization",
+              "in": "header",
+              "type": "string",
+              "default": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZWFsZXJJZCI6MSwidXNlcklkIjoxLCJ1c2VyVHlwZSI6ImRlYWxlciIsImNyZWF0ZV90cyI6IjIwMjItMDgtMDJUMTc6MTk6MzYuMzgxWiIsImlhdCI6MTY1OTQ2MDc3Nn0.0YsN2ZLfX0j3Ma14lI-ov960K6IeP8Ml5k3TT1vgk3A"
+          },
+            {
+              "in":"body",
+              "name":"body",
+              "type":"string",
+              "description":"Give below specified parameters",
+              "required":true,
+              "schema":{
+                "$ref":"#/definitions/bookProductRequest"
+              }
+            }
+          ],
+          "responses":{
+            "200":{
+              "description":"Book Product",
+              "examples":{
+                "application/json":{ }
+              }
+            }
+          }
+        }
+      },
+      "/product/cancelProduct":{
+        "post":{
+          "summary":"",
+          "description":"Cancel A Product",
+          "produces":[
+            "application/json"
+          ],
+          "parameters":[
+            {
+              "name": "Authorization",
+              "in": "header",
+              "type": "string",
+              "default": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZWFsZXJJZCI6MSwidXNlcklkIjoxLCJ1c2VyVHlwZSI6ImRlYWxlciIsImNyZWF0ZV90cyI6IjIwMjItMDgtMDJUMTc6MTk6MzYuMzgxWiIsImlhdCI6MTY1OTQ2MDc3Nn0.0YsN2ZLfX0j3Ma14lI-ov960K6IeP8Ml5k3TT1vgk3A"
+          },
+            {
+              "in":"body",
+              "name":"body",
+              "type":"string",
+              "description":"Give below specified parameters",
+              "required":true,
+              "schema":{
+                "$ref":"#/definitions/cancelProductRequest"
+              }
+            }
+          ],
+          "responses":{
+            "200":{
+              "description":"Cancel Product",
+              "examples":{
+                "application/json":{ }
+              }
+            }
+          }
+        }
       }
     },
     "definitions":{
@@ -292,6 +362,28 @@
           "quantity":{
             "type":"integer",
             "default":34
+          }
+        }
+      },
+      "cancelProductRequest":{
+        "type":"object",
+        "properties":{
+          "product_id":{
+            "type":"string",
+            "default":""
+          }
+        }
+      },
+      "bookProductRequest":{
+        "type":"object",
+        "properties":{
+          "product_id":{
+            "type":"string",
+            "default":""
+          },
+          "quantity":{
+            "type":"integer",
+            "default":2
           }
         }
       },

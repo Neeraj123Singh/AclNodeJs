@@ -25,10 +25,20 @@ const getAllProduct= Joi.object({
   price: Joi.number().required(),
   quantity: Joi.number().required()
  });
+ const bookProduct= Joi.object({
+  product_id: Joi.string().required(),
+  quantity: Joi.number().required()
+});
+
+const cancelProduct= Joi.object({
+  product_id: Joi.string().required()
+});
 
 module.exports = {
     createProduct,
     getAllProduct,
     deleteProduct,
-    updateProduct
+    updateProduct,
+    bookProduct,
+    cancelProduct
 }
