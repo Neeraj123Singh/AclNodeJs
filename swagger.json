@@ -75,10 +75,148 @@
             }
           }
         }
+      },
+      "/product/createProduct":{
+        "post":{
+          "summary":"",
+          "description":"Create Product",
+          "produces":[
+            "application/json"
+          ],
+          "parameters":[
+            {
+              "name": "Authorization",
+              "in": "header",
+              "type": "string",
+              "default": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZWFsZXJJZCI6MSwidXNlcklkIjoxLCJ1c2VyVHlwZSI6ImRlYWxlciIsImNyZWF0ZV90cyI6IjIwMjItMDgtMDJUMTc6MTk6MzYuMzgxWiIsImlhdCI6MTY1OTQ2MDc3Nn0.0YsN2ZLfX0j3Ma14lI-ov960K6IeP8Ml5k3TT1vgk3A"
+          },
+            {
+              "in":"body",
+              "name":"body",
+              "type":"string",
+              "description":"Give below specified parameters",
+              "required":true,
+              "schema":{
+                "$ref":"#/definitions/createProductRequest"
+              }
+            }
+          ],
+          "responses":{
+            "200":{
+              "description":"create Product",
+              "examples":{
+                "application/json":{ }
+              }
+            }
+          }
+        }
+      },
+      "/product/getAllProduct":{
+        "post":{
+          "summary":"",
+          "description":"Get all Products",
+          "produces":[
+            "application/json"
+          ],
+          "parameters":[
+            {
+              "name": "Authorization",
+              "in": "header",
+              "type": "string",
+              "default": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZWFsZXJJZCI6MSwidXNlcklkIjoxLCJ1c2VyVHlwZSI6ImRlYWxlciIsImNyZWF0ZV90cyI6IjIwMjItMDgtMDJUMTc6MTk6MzYuMzgxWiIsImlhdCI6MTY1OTQ2MDc3Nn0.0YsN2ZLfX0j3Ma14lI-ov960K6IeP8Ml5k3TT1vgk3A"
+          },
+            {
+              "in":"body",
+              "name":"body",
+              "type":"string",
+              "description":"Give below specified parameters",
+              "required":true,
+              "schema":{
+                "$ref":"#/definitions/getAllProductRequest"
+              }
+            }
+          ],
+          "responses":{
+            "200":{
+              "description":"Get all Products",
+              "examples":{
+                "application/json":{ }
+              }
+            }
+          }
+        }
+      },
+      "/product/deleteProduct":{
+        "post":{
+          "summary":"",
+          "description":"Delete A Product",
+          "produces":[
+            "application/json"
+          ],
+          "parameters":[
+            {
+              "name": "Authorization",
+              "in": "header",
+              "type": "string",
+              "default": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZWFsZXJJZCI6MSwidXNlcklkIjoxLCJ1c2VyVHlwZSI6ImRlYWxlciIsImNyZWF0ZV90cyI6IjIwMjItMDgtMDJUMTc6MTk6MzYuMzgxWiIsImlhdCI6MTY1OTQ2MDc3Nn0.0YsN2ZLfX0j3Ma14lI-ov960K6IeP8Ml5k3TT1vgk3A"
+          },
+            {
+              "in":"body",
+              "name":"body",
+              "type":"string",
+              "description":"Give below specified parameters",
+              "required":true,
+              "schema":{
+                "$ref":"#/definitions/deleteProductRequest"
+              }
+            }
+          ],
+          "responses":{
+            "200":{
+              "description":"Get all Products",
+              "examples":{
+                "application/json":{ }
+              }
+            }
+          }
+        }
+      },
+      "/product/updateProduct":{
+        "post":{
+          "summary":"",
+          "description":"Update A Product",
+          "produces":[
+            "application/json"
+          ],
+          "parameters":[
+            {
+              "name": "Authorization",
+              "in": "header",
+              "type": "string",
+              "default": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZWFsZXJJZCI6MSwidXNlcklkIjoxLCJ1c2VyVHlwZSI6ImRlYWxlciIsImNyZWF0ZV90cyI6IjIwMjItMDgtMDJUMTc6MTk6MzYuMzgxWiIsImlhdCI6MTY1OTQ2MDc3Nn0.0YsN2ZLfX0j3Ma14lI-ov960K6IeP8Ml5k3TT1vgk3A"
+          },
+            {
+              "in":"body",
+              "name":"body",
+              "type":"string",
+              "description":"Give below specified parameters",
+              "required":true,
+              "schema":{
+                "$ref":"#/definitions/UpdateProductRequest"
+              }
+            }
+          ],
+          "responses":{
+            "200":{
+              "description":"Update Product",
+              "examples":{
+                "application/json":{ }
+              }
+            }
+          }
+        }
       }
     },
-    
-    
     "definitions":{
       "signUpRequest":{
         "type":"object",
@@ -101,6 +239,28 @@
           }
         }
       },
+      "getAllProductRequest":{
+        "type":"object",
+        "properties":{
+          "pageNumber":{
+            "type":"integer",
+            "default":0
+          },
+          "pageSize":{
+            "type":"integer",
+            "default":10
+          }
+        }
+      },
+      "deleteProductRequest":{
+        "type":"object",
+        "properties":{
+          "id":{
+            "type":"string",
+            "default":""
+          }
+        }
+      },
       "loginRequest":{
         "type":"object",
         "properties":{
@@ -111,6 +271,44 @@
           "password":{
             "type":"string",
             "default":"124567"
+          }
+        }
+      },
+      "createProductRequest":{
+        "type":"object",
+        "properties":{
+          "id":{
+            "type":"string",
+            "default":""
+          },
+          "name":{
+            "type":"string",
+            "default":"Product 1"
+          },
+          "price":{
+            "type":"float",
+            "default":124.5
+          },
+          "quantity":{
+            "type":"integer",
+            "default":34
+          }
+        }
+      },
+      "UpdateProductRequest":{
+        "type":"object",
+        "properties":{
+          "name":{
+            "type":"string",
+            "default":"Product 1"
+          },
+          "price":{
+            "type":"float",
+            "default":124.5
+          },
+          "quantity":{
+            "type":"integer",
+            "default":34
           }
         }
       }

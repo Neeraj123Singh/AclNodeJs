@@ -4,11 +4,13 @@ exports.PagesPath = {
   DocPage: appRoot + "/api/doc/index.html"
 };
 exports.ControllersPath = {
-  UserControllerV1: appRoot + '/api/v1/controllers/user/index.js'
+  UserControllerV1: appRoot + '/api/v1/controllers/user/index.js',
+  ProductControllerV1: appRoot + '/api/v1/controllers/product/index.js'
 };
 
 exports.ReqModelsPath = {
-  UserValidationV1: appRoot + "/api/v1/validation/user/index.js"
+  UserValidationV1: appRoot + "/api/v1/validation/user/index.js",
+  ProductValidationV1: appRoot + "/api/v1/validation/product/index.js"
 }
 exports.FilesPath = {
   V1Routes: appRoot + "/api/v1/routes/index.js",
@@ -19,5 +21,6 @@ exports.FilesPath = {
 
 
 exports.ServicesPath = {
-  UserService: appRoot + "/api/services/user-services.js"
+  UserService: appRoot + "/api/services/user-services.js",
+  ProductService: appRoot + "/api/services/product-services.js"
 }

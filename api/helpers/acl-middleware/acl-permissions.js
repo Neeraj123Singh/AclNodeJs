@@ -1,6 +1,6 @@
 var acl = require('acl');
 const nodeAcl = new acl(new acl.memoryBackend());
-const { Roles } = ['admin','user']
+const Roles  = ['admin','user']
 
 nodeAcl.allow([
   {
@@ -8,7 +8,8 @@ nodeAcl.allow([
     allows: [
       {
         resources: [
-          '/signUp'
+          '/signUp',
+          '/getAllProduct'
         ],
         permissions: ['*']
       },
@@ -19,6 +20,9 @@ nodeAcl.allow([
     allows: [
       {
         resources: [
+          '/createProduct',
+          '/deleteProduct',
+          '/updateProduct'
 
         ],
         permissions: ['*']

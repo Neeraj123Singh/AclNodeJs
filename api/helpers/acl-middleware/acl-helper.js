@@ -8,6 +8,7 @@ exports.getPermissions = async (req,res,next) => {
       if(req.loggedInUser.role ){
         role = req.loggedInUser.role
       }
+      console.log(req.loggedInUser)
       var isPermitted = false;
       const url = req.url.includes("?")?req.url.split("?")[0]:req.url;
       await nodeAcl.isAllowed(
@@ -17,6 +18,7 @@ exports.getPermissions = async (req,res,next) => {
             isPermitted = true;
           }
       });
+      console.log(isPermitted)
       if(isPermitted || CommonHelper.isUuid(req.loggedInUser.user_id)){
         next();
       }else{
