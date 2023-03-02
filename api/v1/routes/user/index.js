@@ -6,4 +6,5 @@ const express = require("express");
 const router = express.Router();
 var AuthHelper = require(_pathconst.FilesPath.AuthHelper);
 router.post("/signUp", UserControllerV1.signUp);
+router.post("/login", UserControllerV1.login);
 module.exports = router;

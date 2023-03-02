@@ -12,6 +12,16 @@ const signUp= Joi.object({
     role: Joi.string().required(),
   });
 
+  const login = Joi.object({
+    email: Joi.string()
+      .email()
+      .required(),
+    password: Joi.string()
+      .required()
+      .min(2)
+      .max(50)
+  });
 module.exports = {
-    signUp
+    signUp,
+    login
 }

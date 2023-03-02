@@ -33,10 +33,43 @@ const signUp = async (req, res, next) => {
     }
 }
 
+const login = async (req, res, next) => {
+    try {
+        const { error } = UserValidationV1.login.validate(req.body);
+        if (error) {
+            ResHelper.apiResponse(res, false, error.message, 401, {}, "");
+        } else {
+            let { email, password } = req.body;
+            let user = await UserService.findUser(email);
+            if (user) {
+            
+                let passwordMatched = await bcrypt.compare(password, user.password);
+                if (passwordMatched) {
+                    user = await UserService.findUser(email);
+                    let token = await AuthHelper.createJWToken(user);
+                    nodeAcl.nodeAcl.addUserRoles(user.id, user.role);//Users
+                    ResHelper.apiResponse(res, true, "Success", 200, user, token);
+                } else {
+                    ResHelper.apiResponse(res, false, "Invalid Credentials", 401, {}, "");
+                }
+            
+            } else {
+                ResHelper.apiResponse(res, false, "Invalid Credentials", 401, {}, "");
+            }
+        }
+    }
+    catch (e) {
+        logger.error(e)
+        ResHelper.apiResponse(res, false, "Error occured during execution", 500, {}, "");
+    }
+}
+
+
 // }
 
 module.exports = {
-    signUp
+    signUp,
+    login
 };
 
 

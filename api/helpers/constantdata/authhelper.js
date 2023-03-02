@@ -64,16 +64,6 @@ exports.authorize = async function (req, res, next) {
         return res.status(401).send(resModel);
     }
 
-    let user = await UserService.findUser(payload.user.userEmail);
-    console.log(compareDateString(user.tokenUpdatedAt,payload.user.tokenUpdatedAt))
-    if(!user || user.status!=1){
-        resModel.Message = 'Invalid Token';
-        return res.status(401).send(resModel);
-       
-    }else if(!compareDateString(user.tokenUpdatedAt,payload.user.tokenUpdatedAt)){
-        resModel.Message = 'Invalid Token';
-        return res.status(401).send(resModel);
-    }
 
     req.userId = payload.userId;
     req.loggedInUser = payload.user;

@@ -20,8 +20,8 @@
     "paths":{
       "/user/signUp":{
         "post":{
-          "summary":"Sign Up as CEO",
-          "description":"Create a CEO or Superadmin account",
+          "summary":"Sign Up",
+          "description":"Create a  account",
           "produces":[
             "application/json"
           ],
@@ -40,6 +40,35 @@
           "responses":{
             "200":{
               "description":"successful sign Up",
+              "examples":{
+                "application/json":{ }
+              }
+            }
+          }
+        }
+      },
+      "/user/login":{
+        "post":{
+          "summary":"",
+          "description":"login a  account",
+          "produces":[
+            "application/json"
+          ],
+          "parameters":[
+            {
+              "in":"body",
+              "name":"body",
+              "type":"string",
+              "description":"Give below specified parameters",
+              "required":true,
+              "schema":{
+                "$ref":"#/definitions/loginRequest"
+              }
+            }
+          ],
+          "responses":{
+            "200":{
+              "description":"successful login",
               "examples":{
                 "application/json":{ }
               }
@@ -69,6 +98,19 @@
           "name":{
             "type":"string",
             "default":"Neeraj Singh"
+          }
+        }
+      },
+      "loginRequest":{
+        "type":"object",
+        "properties":{
+          "email":{
+            "type":"string",
+            "default":"neeraj.singh@novostack.com"
+          },
+          "password":{
+            "type":"string",
+            "default":"124567"
           }
         }
       }
