@@ -48,7 +48,7 @@ const bookProduct = async(user_id,product_id,quantity) =>{
 const cancelProduct = async(product_id,user_id) =>{
     let query = ` delete from bookings where user_id = ? and product_id = ? `;
     let bindParams =[user_id,product_id];
-    let userProduct = await sequelize.query(query,{ replacements: bindParams, type: QueryTypes.DELETEp });
+    let userProduct = await sequelize.query(query,{ replacements: bindParams, type: QueryTypes.DELETE });
     return userProduct[0];
 }
 module.exports = {
